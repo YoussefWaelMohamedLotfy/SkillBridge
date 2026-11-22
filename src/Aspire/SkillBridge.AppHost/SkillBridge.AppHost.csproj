@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<OutputType>Exe</OutputType>
+	<UserSecretsId>c1ffb364-e55a-4321-8cca-2c4aa67c180a</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+	  <PackageReference Include="Aspire.Hosting.AppHost" />
+	  <PackageReference Include="Aspire.Hosting.Dotnet" />
+	  <PackageReference Include="Aspire.Hosting.EntityFrameworkCore" />
+	  <PackageReference Include="Aspire.Hosting.Garnet" />
+	  <PackageReference Include="Aspire.Hosting.Keycloak" />
+	  <PackageReference Include="Aspire.Hosting.PostgreSQL" />
+	  <PackageReference Include="Aspire.Hosting.RabbitMQ" />
+	  <PackageReference Include="CommunityToolkit.Aspire.Hosting.Keycloak.Extensions" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<ProjectReference Include="..\..\Apps\SkillBridge.Blazor\SkillBridge.Blazor.csproj" />
+	<ProjectReference Include="..\..\Backend\SkillBridge.API\SkillBridge.API.csproj" />
+  </ItemGroup>
+
+</Project>

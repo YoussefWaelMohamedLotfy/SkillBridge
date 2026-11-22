@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+  </PropertyGroup>
+
+  <ItemGroup>
+	  <PackageReference Include="Aspire.Npgsql.EntityFrameworkCore.PostgreSQL" />
+	  <PackageReference Include="Aspire.Keycloak.Authentication" />
+	  <PackageReference Include="MassTransit" />
+	  <PackageReference Include="MassTransit.RabbitMQ" />
+	  <PackageReference Include="FastEndpoints" />
+	  <PackageReference Include="FastEndpoints.AspVersioning" />
+	  <PackageReference Include="FastEndpoints.OpenApi" />
+	  <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+	  <PackageReference Include="FluentValidation" />
+	  <PackageReference Include="FluentValidation.DependencyInjectionExtensions" />
+	  <PackageReference Include="Marten" />
+	  <PackageReference Include="Marten.AspNetCore" />
+	  <PackageReference Include="JasperFx.Events.SourceGenerator">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
+	  <PackageReference Include="Mediator.Abstractions" />
+	  <PackageReference Include="Mediator.SourceGenerator">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Tools">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
+	  <PackageReference Include="Aspire.StackExchange.Redis.DistributedCaching" />
+	  <PackageReference Include="ZiggyCreatures.FusionCache" />
+	  <PackageReference Include="ZiggyCreatures.FusionCache.Serialization.SystemTextJson" />
+	  <PackageReference Include="ZiggyCreatures.FusionCache.Backplane.StackExchangeRedis" />
+	  <PackageReference Include="ZiggyCreatures.FusionCache.OpenTelemetry" />
+	  <PackageReference Include="Bogus" />
+	  <PackageReference Include="Scalar.AspNetCore.Microsoft" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Aspire\SkillBridge.ServiceDefaults\SkillBridge.ServiceDefaults.csproj" />
+  </ItemGroup>
+
+</Project>

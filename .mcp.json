@@ -1,0 +1,24 @@
+{
+    "mcpServers": {
+        "aspire": {
+            "type": "local",
+            "command": "aspire",
+            "args": [
+                "agent",
+                "mcp"
+            ]
+        },
+        "pgmcp": {
+            "url": "http://localhost:8083/sse",
+            "type": "http"
+        },
+        "NuGet.Mcp.Server": {
+            "type": "stdio",
+            "command": "dnx",
+            "args": [
+                "NuGet.Mcp.Server@1.4.15",
+                "--yes"
+            ]
+        }
+    }
+}

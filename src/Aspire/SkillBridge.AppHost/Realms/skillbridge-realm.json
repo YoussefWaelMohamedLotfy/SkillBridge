@@ -1,0 +1,126 @@
+{
+  "id": "skillbridge",
+  "realm": "skillbridge",
+  "displayName": "SkillBridge",
+  "enabled": true,
+  "sslRequired": "external",
+  "registrationAllowed": false,
+  "loginWithEmailAllowed": true,
+  "duplicateEmailsAllowed": false,
+  "resetPasswordAllowed": true,
+  "editUsernameAllowed": false,
+  "bruteForceProtected": true,
+  "roles": {
+    "realm": [
+      { "name": "customer", "description": "End customer who books tickets" },
+      { "name": "clerk", "description": "Counter clerk who serves customers" },
+      { "name": "admin", "description": "System administrator" }
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "skillbridge-api",
+      "name": "SkillBridge API",
+      "enabled": true,
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "redirectUris": [
+        "https://localhost:7157/scalar/*",
+        "http://localhost:5255/scalar/*"
+      ],
+      "webOrigins": [
+        "https://localhost:7157",
+        "http://localhost:5255"
+      ],
+      "defaultClientScopes": [ "openid", "profile", "email", "roles" ],
+      "protocolMappers": [
+        {
+          "name": "realm roles",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-realm-role-mapper",
+          "config": {
+            "claim.name": "roles",
+            "jsonType.label": "String",
+            "multivalued": "true",
+            "userinfo.token.claim": "true",
+            "id.token.claim": "true",
+            "access.token.claim": "true"
+          }
+        },
+        {
+          "name": "skillbridge-api audience",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "config": {
+            "included.client.audience": "skillbridge-api",
+            "id.token.claim": "false",
+            "access.token.claim": "true"
+          }
+        }
+      ]
+    },
+    {
+      "clientId": "skillbridge-web",
+      "name": "SkillBridge Web",
+      "enabled": true,
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "redirectUris": [
+        "https://localhost:7243/signin-oidc",
+        "http://localhost:5086/signin-oidc"
+      ],
+      "webOrigins": [
+        "https://localhost:7243",
+        "http://localhost:5086"
+      ],
+      "defaultClientScopes": ["openid", "profile", "email", "roles"],
+      "protocolMappers": [
+        {
+          "name": "realm roles",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-realm-role-mapper",
+          "config": {
+            "claim.name": "roles",
+            "jsonType.label": "String",
+            "multivalued": "true",
+            "userinfo.token.claim": "true",
+            "id.token.claim": "true",
+            "access.token.claim": "true"
+          }
+        },
+        {
+          "name": "skillbridge-api audience",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "config": {
+            "included.client.audience": "skillbridge-api",
+            "id.token.claim": "false",
+            "access.token.claim": "true"
+          }
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "username": "admin@skillbridge.local",
+      "email": "admin@skillbridge.local",
+      "firstName": "Admin",
+      "lastName": "User",
+      "enabled": true,
+      "credentials": [{ "type": "password", "value": "admin", "temporary": false }],
+      "realmRoles": ["admin"]
+    },
+    {
+      "username": "clerk@skillbridge.local",
+      "email": "clerk@skillbridge.local",
+      "firstName": "Clerk",
+      "lastName": "User",
+      "enabled": true,
+      "credentials": [{ "type": "password", "value": "clerk", "temporary": false }],
+      "realmRoles": ["clerk"]
+    }
+  ]
+}
